@@ -27,9 +27,9 @@ make CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
 rm -rf $RPM_BUILD_ROOT
 make INSTROOT=$RPM_BUILD_ROOT install
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
-mv $RPM_BUILD_ROOT/usr/man $RPM_BUILD_ROOT/usr/share
+mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT/usr/share
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(no) /usr/share/locale/no/LC_MESSAGES/authconfig.mo
 %lang(sk) /usr/share/locale/sk/LC_MESSAGES/authconfig.mo
 
-/usr/share/man/man8/*
+%{_mandir}/man8/*
 
 %changelog
 * Fri May 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
