@@ -10,7 +10,6 @@ Name:		authconfig
 Version:	2.0
 Release:	4
 License:	GPL
-ExclusiveOS:	Linux
 Group:		Base
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	5299be78429fd5f550950966b0a3e015
@@ -18,6 +17,7 @@ Patch0:		%{name}-make.patch
 BuildRequires:	newt-devel
 BuildRequires:	popt-devel
 BuildRequires:	slang-devel
+ExclusiveOS:	Linux
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,11 +71,14 @@ NIS при старт╕ системи.
 %patch -p1
 
 %build
-%{__make} CFLAGS="-DVERSION=\"${VERSION}\" %{rpmcflags} -Wall"
+%{__make} \
+	CFLAGS="-DVERSION=\"${VERSION}\" %{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} INSTROOT=$RPM_BUILD_ROOT install
+
+%{__make} install \
+	INSTROOT=$RPM_BUILD_ROOT
 
 %find_lang %{name}
 
