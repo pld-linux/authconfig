@@ -1,7 +1,7 @@
 Summary:	Text-mode tool for setting up NIS and shadow passwords.
 Name:		authconfig
 Version:	1.7
-Release:	2
+Release:	3
 Copyright:	GPL
 ExclusiveOS:	Linux
 Group:		Base
@@ -29,6 +29,8 @@ make INSTROOT=$RPM_BUILD_ROOT install
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 
+mv $RPM_BUILD_ROOT/usr/man $RPM_BUILD_ROOT/usr/share
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -41,9 +43,13 @@ rm -rf $RPM_BUILD_ROOT
 %lang(no) /usr/share/locale/no/LC_MESSAGES/authconfig.mo
 %lang(sk) /usr/share/locale/sk/LC_MESSAGES/authconfig.mo
 
-/usr/man/man8/*
+/usr/share/man/man8/*
 
 %changelog
+* Fri May 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.7-3]
+- now package is FHS 2.0 compliat.
+
 * Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.7-2]
 - uncommented .mo files and added %lang macros for this files,
