@@ -39,22 +39,3 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/authconfig
-
-%changelog
-* Mon May 31 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-4]
-- added using %%find_lang macro.
-
-* Fri May 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-3]
-- now package is FHS 2.0 compliant.
-
-* Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-2]
-- uncommented .mo files and added %lang macros for this files,
-- gzippen man page,
-- Group changed to Base,
-- added BuildPrereq rules,
-- added "rm -rf $RPM_BUILD_ROOT" on top %install.
-
-Spec based on RH version.
