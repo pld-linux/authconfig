@@ -5,8 +5,9 @@ Release:	4
 Copyright:	GPL
 ExclusiveOS:	Linux
 Group:		Base
-Group(pl):	Podstawy
+Group(pl):	Podstawowe
 Source:		%{name}-%{version}.tar.gz
+Patch:		authconfig-make.patch
 BuildPrereq:	newt-devel
 BuildPrereq:	popt-devel
 BuildPrereq:	slang-devel
@@ -19,6 +20,7 @@ also configures the system to automatically turn on NIS at system startup.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 make CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
@@ -29,8 +31,6 @@ make INSTROOT=$RPM_BUILD_ROOT install
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
-mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT%{_datadir}
-
 %find_lang %{name}
 
 %clean
@@ -39,3 +39,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/authconfig
+%{_mandir}/man8/*
