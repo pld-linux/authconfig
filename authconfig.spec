@@ -4,6 +4,8 @@ Summary(es):	Herramienta de interfaz texto para configuraciСn de contraseЯas sha
 Summary(ja):	NIS ╓х╔╥╔Ц╔и║╪╔я╔╧╔О║╪╔и╓РюъдЙ╓╧╓К╓©╓А╓н╔ф╔╜╔╧╔х╔Б║╪╔и╓н╔д║╪╔К║ё
 Summary(pl):	NarzЙdzie do ustawiania przesЁoniЙtych haseЁ oraz NIS
 Summary(pt_BR):	Ferramenta de interface texto para configuraГЦo de senhas shadow e NIS
+Summary(ru):	Утилита текстового режима для настройки shadow и NIS-паролей
+Summary(uk):	Утил╕та текстового режиму для налагодження shadow та NIS-парол╕в
 Name:		authconfig
 Version:	2.0
 Release:	4
@@ -54,6 +56,18 @@ byЁ aktywowany przy starcie systemu.
 O authconfig И um programa de interface texto para configurar o NIS e
 senhas shadow no seu sistema. O authconfig tambИm pode inicializar o
 NIS no boot do sistema.
+
+%description -l ru
+Authconfig - это терминальная программа для настройки Network
+Information Service (NIS) и shadow (более безопасных) паролей в вашей
+системе. Authconfig также настраивает систему на автоматический запуск
+NIS при старте системы.
+
+%description -l uk
+Authconfig - це терм╕нальна програма для налагодження Network
+Information Service (NIS) та shadow (б╕льш безпечних) парол╕в у ваш╕й
+систем╕. Authconfig також конф╕гуру╓ систему для автоматичного запуску
+NIS при старт╕ системи.
 
 %prep
 %setup -q
