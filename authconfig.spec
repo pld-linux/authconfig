@@ -29,7 +29,7 @@ make INSTROOT=$RPM_BUILD_ROOT install
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
-mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT/usr/share
+mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT%{_datadir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -38,10 +38,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/sbin/authconfig
 
-%lang(hu) /usr/share/locale/hu/LC_MESSAGES/authconfig.mo
-%lang(in) /usr/share/locale/in/LC_MESSAGES/authconfig.mo
-%lang(no) /usr/share/locale/no/LC_MESSAGES/authconfig.mo
-%lang(sk) /usr/share/locale/sk/LC_MESSAGES/authconfig.mo
+%lang(hu) %{_datadir}/locale/hu/LC_MESSAGES/authconfig.mo
+%lang(in) %{_datadir}/locale/in/LC_MESSAGES/authconfig.mo
+%lang(no) %{_datadir}/locale/no/LC_MESSAGES/authconfig.mo
+%lang(sk) %{_datadir}/locale/sk/LC_MESSAGES/authconfig.mo
 
 %{_mandir}/man8/*
 
