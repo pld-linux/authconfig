@@ -13,7 +13,7 @@ Patch:		authconfig-make.patch
 BuildRequires:	newt-devel
 BuildRequires:	popt-devel
 BuildRequires:	slang-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
 Authconfig is a terminal mode program for setting up Network Information
