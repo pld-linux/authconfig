@@ -1,0 +1,35 @@
+diff -ur authconfig-1.7.orig/Makefile authconfig-1.7/Makefile
+--- authconfig-1.7.orig/Makefile	Wed Mar 10 00:41:25 1999
++++ authconfig-1.7/Makefile	Sat Jul 17 15:37:13 1999
+@@ -18,7 +18,7 @@
+ authconfig: $(PROGNAME).c
+ 
+ install:
+-	mkdir -p $(INSTROOT)/usr/sbin $(INSTROOT)/usr/man/man8
++	mkdir -p $(INSTROOT)/usr/sbin $(INSTROOT)/usr/share/man/man8
+ 	install -m 755 -s $(PROGNAME) $(INSTROOT)/usr/sbin/$(PROGNAME)
+ 	for d in $(SUBDIRS); do \
+ 	(cd $$d; $(MAKE) INSTROOT=$(INSTROOT) install) \
+Only in authconfig-1.7: authconfig
+diff -ur authconfig-1.7.orig/man/Makefile authconfig-1.7/man/Makefile
+--- authconfig-1.7.orig/man/Makefile	Thu Feb  4 22:10:18 1999
++++ authconfig-1.7/man/Makefile	Sat Jul 17 15:37:58 1999
+@@ -1,11 +1,11 @@
+ all:
+ 
+ install:
+-	install -m 644 en/authconfig.8 $(INSTROOT)/usr/man/man8
++	install -m 644 en/authconfig.8 $(INSTROOT)/usr/share/man/man8
+ 	for d in $(shell ls | grep -v en | grep -v Makefile | grep -v CVS)""; do \
+ 		[ -z "$$d" ] && continue; \
+-	        mkdir -p  $(INSTROOT)/usr/man/$$d/man8 ; \
+-		install -m 644 $$d/authconfig.8 $(INSTROOT)/usr/man/$$d/man8 ; \
++	        mkdir -p  $(INSTROOT)/usr/share/man/$$d/man8 ; \
++		install -m 644 $$d/authconfig.8 $(INSTROOT)/usr/share/man/$$d/man8 ; \
+ 	done
+ 
+ clean:
+Only in authconfig-1.7/po: hu.mo
+Only in authconfig-1.7/po: in.mo
+Only in authconfig-1.7/po: no.mo
+Only in authconfig-1.7/po: sk.mo
