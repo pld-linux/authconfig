@@ -38,11 +38,11 @@ by³ aktywowany przy starcie systemu.
 %patch -p1
 
 %build
-make CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
+%{__make} CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make INSTROOT=$RPM_BUILD_ROOT install
+%{__make} INSTROOT=$RPM_BUILD_ROOT install
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
