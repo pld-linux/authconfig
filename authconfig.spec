@@ -2,7 +2,7 @@ Summary:	Text-mode tool for setting up NIS and shadow passwords.
 Summary(de):	Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
 Summary(pl):	Narzêdzie do ustawiania przes³oniêtych hase³ oraz NIS.
 Name:		authconfig
-Version:	1.8
+Version:	2.0
 Release:	3
 Copyright:	GPL
 ExclusiveOS:	Linux
