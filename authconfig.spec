@@ -34,7 +34,7 @@ Ihren System zu konfigurieren. Authconfig kann außerdem anschalten,
 daß NIS beim Systemstart angeschaltet wird.
 
 %description -l es
-authconfig es un programa de interfaz de texto para configurar NIS y
+Authconfig es un programa de interfaz de texto para configurar NIS y
 contraseñas shadow en el sistema. El programa authconfig también puede
 inicializar NIS cuando se arranca el sistema.
 
