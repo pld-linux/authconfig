@@ -31,10 +31,12 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
 mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT%{_datadir}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f authconfig.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/authconfig
 
