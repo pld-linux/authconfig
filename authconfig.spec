@@ -1,15 +1,16 @@
-Summary:	Text-mode tool for setting up NIS and shadow passwords.
+Summary:	Text-mode tool for setting up NIS and shadow passwords
 Summary(de):	Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
-Summary(pl):	Narzêdzie do ustawiania przes³oniêtych hase³ oraz NIS.
+Summary(pl):	Narzêdzie do ustawiania przes³oniêtych hase³ oraz NIS
 Name:		authconfig
 Version:	2.0
 Release:	3
 License:	GPL
 ExclusiveOS:	Linux
 Group:		Base
+Group(de):	Gründsätzlich
 Group(pl):	Podstawowe
 Source0:	%{name}-%{version}.tar.gz
-Patch0:		authconfig-make.patch
+Patch0:		%{name}-make.patch
 BuildRequires:	newt-devel
 BuildRequires:	popt-devel
 BuildRequires:	slang-devel
@@ -38,13 +39,11 @@ by³ aktywowany przy starcie systemu.
 %patch -p1
 
 %build
-%{__make} CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
+%{__make} CFLAGS="-DVERSION=\"${VERSION}\" %{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} INSTROOT=$RPM_BUILD_ROOT install
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
 %find_lang %{name}
 
