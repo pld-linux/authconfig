@@ -1,4 +1,5 @@
 Summary:	Text-mode tool for setting up NIS and shadow passwords.
+Summary(pl):	Narzêdzie do ustawiania przes³oniêtych hase³ oraz NIS.
 Name:		authconfig
 Version:	1.7
 Release:	4
@@ -17,6 +18,12 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 Authconfig is a terminal mode program for setting up Network Information
 Service (NIS) and shadow (more secure) passwords on your system. Authconfig
 also configures the system to automatically turn on NIS at system startup.
+
+%description -l pl
+Authconfig jest terminalowym programem dla ustawiania NIS (Network Information
+Service) oraz przes³onietych (bardziej bezpiecznych) hase³ w Twoim systemie.
+Authconfig dodatkowo konfiguruje system tak by NIS by³ aktywowany przy
+starcie systemu.
 
 %prep
 %setup -q
