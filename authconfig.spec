@@ -44,7 +44,7 @@ authconfig ¤Ï¥·¥¹¥Æ¥à¤Ë Network Information Service (NIS) ¤È¥·¥ã¥É¡¼
 
 %description -l pl
 Authconfig jest terminalowym programem dla ustawiania NIS (Network
-Information Service) oraz przes³onietych (bardziej bezpiecznych) hase³
+Information Service) oraz przes³oniêtych (bardziej bezpiecznych) hase³
 w Twoim systemie. Authconfig dodatkowo konfiguruje system tak by NIS
 by³ aktywowany przy starcie systemu.
 
