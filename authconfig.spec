@@ -8,7 +8,7 @@ Summary(ru):	Утилита текстового режима для настройки shadow и NIS-паролей
 Summary(uk):	Утил╕та текстового режиму для налагодження shadow та NIS-парол╕в
 Name:		authconfig
 Version:	2.0
-Release:	5
+Release:	6
 License:	GPL
 Group:		Base
 Source0:	%{name}-%{version}.tar.gz
@@ -70,6 +70,8 @@ NIS при старт╕ системи.
 %setup -q
 %patch -p1
 
+mv po/{no,nb}.po
+
 %build
 %{__make} \
 	CFLAGS="-DVERSION=\"${VERSION}\" %{rpmcflags} -Wall"
@@ -79,6 +81,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	INSTROOT=$RPM_BUILD_ROOT
+
+# remove empty translation files
+for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
+	[ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] && rm -f $f
+done
 
 %find_lang %{name}
 
