@@ -1,7 +1,7 @@
 Summary:	Text-mode tool for setting up NIS and shadow passwords.
 Name:		authconfig
 Version:	1.7
-Release:	3
+Release:	4
 Copyright:	GPL
 ExclusiveOS:	Linux
 Group:		Base
@@ -34,18 +34,15 @@ mv $RPM_BUILD_ROOT%{_mandir} $RPM_BUILD_ROOT%{_datadir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f authconfig.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/authconfig
 
-%lang(hu) %{_datadir}/locale/hu/LC_MESSAGES/authconfig.mo
-%lang(in) %{_datadir}/locale/in/LC_MESSAGES/authconfig.mo
-%lang(no) %{_datadir}/locale/no/LC_MESSAGES/authconfig.mo
-%lang(sk) %{_datadir}/locale/sk/LC_MESSAGES/authconfig.mo
-
-%{_mandir}/man8/*
-
 %changelog
+* Mon May 31 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.7-4]
+- added using %%find_lang macro.
+
 * Fri May 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.7-3]
 - now package is FHS 2.0 compliant.
@@ -58,49 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 - added BuildPrereq rules,
 - added "rm -rf $RPM_BUILD_ROOT" on top %install.
 
-* Thu Apr 01 1999 Preston Brown <pbrown@redhat.com>
-- don't report errors about NIS fields not being filled in if not enabled
-
-* Fri Mar 26 1999 Preston Brown <pbrown@redhat.com>
-- fix typo
-- change domainname at nis start and stop
-
-* Tue Mar 23 1999 Preston Brown <pbrown@redhat.com>
-- fixed man page
-
-* Wed Mar 17 1999 Matt Wilson <msw@redhat.com>
-- fixed rewriting /etc/yp.conf
-- restarts ypbind so that new changes take effect
-
-* Mon Mar 15 1999 Matt Wilson <msw@redhat.com>
-- just make the NIS part of configuration grayed out if NIS is not installed
-
-* Tue Mar 09 1999 Preston Brown <pbrown@redhat.com>
-- static buffer sizes increased.
-
-* Tue Mar  9 1999 Matt Wilson <msw@redhat.com>
-- removed build opts because of problems on alpha
-
-* Mon Feb  8 1999 Matt Wilson <msw@redhat.com>
-- Don't rewrite ypbind.conf if you're not configuring NIS
-
-* Mon Feb  8 1999 Matt Wilson <msw@redhat.com>
-- Don't configure NIS if /etc/ypbind.conf does not exist.
-
-* Sat Feb  6 1999 Matt Wilson <msw@redhat.com>
-- changed "/sbin/chkconfig --add ypbind" to
-  "/sbin/chkconfig --level 345 ypbind on"
-- added checks for null nis domains and servers if nis is enabled or if
-  not using broadcast.
-- added newt entry filter for spaces in domains
-
-* Sat Feb  6 1999 Matt Wilson <msw@redhat.com>
-- changed command line options to match user interface
-- added --help
-
-* Thu Feb  4 1999 Matt Wilson <msw@redhat.com>
-- Rewrote UI to handle geometry management properly
-- MD5 passwords do not require shadow passwords, so made them independent
-
-* Wed Feb 03 1999 Preston Brown <pbrown@redhat.com>
-- initial spec file
+Spec based on RH version.
