@@ -8,12 +8,13 @@ Summary(ru):	Утилита текстового режима для настройки shadow и NIS-паролей
 Summary(uk):	Утил╕та текстового режиму для налагодження shadow та NIS-парол╕в
 Name:		authconfig
 Version:	2.0
-Release:	6
+Release:	7
 License:	GPL
 Group:		Base
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	5299be78429fd5f550950966b0a3e015
 Patch0:		%{name}-make.patch
+Patch1:		%{name}-po.patch
 BuildRequires:	newt-devel
 BuildRequires:	popt-devel
 BuildRequires:	slang-devel
@@ -68,9 +69,11 @@ NIS при старт╕ системи.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 mv po/{no,nb}.po
+mv po/sr{,@Latn}.po
 
 %build
 %{__make} \
