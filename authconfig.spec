@@ -36,7 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/sbin/authconfig
+%attr(755,root,root) %{_sbindir}/authconfig
 
 %lang(hu) %{_datadir}/locale/hu/LC_MESSAGES/authconfig.mo
 %lang(in) %{_datadir}/locale/in/LC_MESSAGES/authconfig.mo
