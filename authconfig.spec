@@ -5,6 +5,7 @@ Release:	2
 Copyright:	GPL
 ExclusiveOS:	Linux
 Group:		Base
+Group(pl):	Podstawy
 Source:		%{name}-%{version}.tar.gz
 BuildPrereq:	newt-devel
 BuildPrereq:	popt-devel
