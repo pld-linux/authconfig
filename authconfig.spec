@@ -20,7 +20,7 @@ also configures the system to automatically turn on NIS at system startup.
 %setup -q
 
 %build
-make
+make CFLAGS="-DVERSION=\"${VERSION}\" $RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -34,11 +34,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/sbin/authconfig
-/usr/man/man8/*
+
 %lang(hu) /usr/share/locale/hu/LC_MESSAGES/authconfig.mo
 %lang(in) /usr/share/locale/in/LC_MESSAGES/authconfig.mo
 %lang(no) /usr/share/locale/no/LC_MESSAGES/authconfig.mo
 %lang(sk) /usr/share/locale/sk/LC_MESSAGES/authconfig.mo
+
+/usr/man/man8/*
 
 %changelog
 * Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
