@@ -12,10 +12,6 @@ Release:	4
 License:	GPL
 ExclusiveOS:	Linux
 Group:		Base
-Group(de):	Gründsätzlich
-Group(es):	Base
-Group(pl):	Podstawowe
-Group(pt_BR):	Base
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}-make.patch
 BuildRequires:	newt-devel
