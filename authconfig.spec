@@ -8,9 +8,9 @@ Group:		Base
 Group(pl):	Podstawowe
 Source:		%{name}-%{version}.tar.gz
 Patch:		authconfig-make.patch
-BuildPrereq:	newt-devel
-BuildPrereq:	popt-devel
-BuildPrereq:	slang-devel
+BuildRequires:	newt-devel
+BuildRequires:	popt-devel
+BuildRequires:	slang-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description 
