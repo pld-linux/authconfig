@@ -19,7 +19,7 @@ BuildRequires:	popt-devel
 BuildRequires:	slang-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 Authconfig is a terminal mode program for setting up Network
 Information Service (NIS) and shadow (more secure) passwords on your
 system. Authconfig also configures the system to automatically turn on
