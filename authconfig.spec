@@ -15,6 +15,7 @@ Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	5299be78429fd5f550950966b0a3e015
 Patch0:		%{name}-make.patch
 Patch1:		%{name}-po.patch
+BuildRequires:	gettext-devel
 BuildRequires:	newt-devel
 BuildRequires:	popt-devel
 BuildRequires:	slang-devel
