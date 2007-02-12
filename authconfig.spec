@@ -1,11 +1,11 @@
 Summary:	Text-mode tool for setting up NIS and shadow passwords
-Summary(de.UTF-8):   Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
-Summary(es.UTF-8):   Herramienta de interfaz texto para configuración de contraseñas shadow y NIS
-Summary(ja.UTF-8):   NIS とシャドーパスワードを設定するためのテキストモードのツール。
-Summary(pl.UTF-8):   Narzędzie do ustawiania przesłoniętych haseł oraz NIS
-Summary(pt_BR.UTF-8):   Ferramenta de interface texto para configuração de senhas shadow e NIS
-Summary(ru.UTF-8):   Утилита текстового режима для настройки shadow и NIS-паролей
-Summary(uk.UTF-8):   Утиліта текстового режиму для налагодження shadow та NIS-паролів
+Summary(de.UTF-8):	Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
+Summary(es.UTF-8):	Herramienta de interfaz texto para configuración de contraseñas shadow y NIS
+Summary(ja.UTF-8):	NIS とシャドーパスワードを設定するためのテキストモードのツール。
+Summary(pl.UTF-8):	Narzędzie do ustawiania przesłoniętych haseł oraz NIS
+Summary(pt_BR.UTF-8):	Ferramenta de interface texto para configuração de senhas shadow e NIS
+Summary(ru.UTF-8):	Утилита текстового режима для настройки shadow и NIS-паролей
+Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
 Version:	2.0
 Release:	8
