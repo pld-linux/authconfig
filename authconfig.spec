@@ -1,11 +1,11 @@
 Summary:	Text-mode tool for setting up NIS and shadow passwords
-Summary(de):	Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
-Summary(es):	Herramienta de interfaz texto para configuraciСn de contraseЯas shadow y NIS
-Summary(ja):	NIS ╓х╔╥╔Ц╔и║╪╔я╔╧╔О║╪╔и╓РюъдЙ╓╧╓К╓©╓А╓н╔ф╔╜╔╧╔х╔Б║╪╔и╓н╔д║╪╔К║ё
-Summary(pl):	NarzЙdzie do ustawiania przesЁoniЙtych haseЁ oraz NIS
-Summary(pt_BR):	Ferramenta de interface texto para configuraГЦo de senhas shadow e NIS
-Summary(ru):	Утилита текстового режима для настройки shadow и NIS-паролей
-Summary(uk):	Утил╕та текстового режиму для налагодження shadow та NIS-парол╕в
+Summary(de.UTF-8):   Textmodus-Tool, um NIS und shadow-Passwoerter zu konfigurieren
+Summary(es.UTF-8):   Herramienta de interfaz texto para configuraciцЁn de contraseц╠as shadow y NIS
+Summary(ja.UTF-8):   NIS Ц│╗Ц┌╥Ц┐ёЦ┐┴Ц┐╪Ц┐▒Ц┌╧Ц┐╞Ц┐╪Ц┐┴Ц┌▓Х╗╜Е╝ Ц│≥Ц┌▀Ц│÷Ц┌│Ц│╝Ц┐├Ц┌╜Ц┌╧Ц┐┬Ц┐╒Ц┐╪Ц┐┴Ц│╝Ц┐└Ц┐╪Ц┐╚Ц─┌
+Summary(pl.UTF-8):   Narzд≥dzie do ustawiania przesе┌oniд≥tych haseе┌ oraz NIS
+Summary(pt_BR.UTF-8):   Ferramenta de interface texto para configuraц╖цёo de senhas shadow e NIS
+Summary(ru.UTF-8):   пёя┌п╦п╩п╦я┌п╟ я┌п╣п╨я│я┌п╬п╡п╬пЁп╬ я─п╣п╤п╦п╪п╟ п╢п╩я▐ п╫п╟я│я┌я─п╬п╧п╨п╦ shadow п╦ NIS-п©п╟я─п╬п╩п╣п╧
+Summary(uk.UTF-8):   пёя┌п╦п╩я√я┌п╟ я┌п╣п╨я│я┌п╬п╡п╬пЁп╬ я─п╣п╤п╦п╪я┐ п╢п╩я▐ п╫п╟п╩п╟пЁп╬п╢п╤п╣п╫п╫я▐ shadow я┌п╟ NIS-п©п╟я─п╬п╩я√п╡
 Name:		authconfig
 Version:	2.0
 Release:	8
@@ -28,45 +28,45 @@ Information Service (NIS) and shadow (more secure) passwords on your
 system. Authconfig also configures the system to automatically turn on
 NIS at system startup.
 
-%description -l de
+%description -l de.UTF-8
 Authconfig ist ein Textmodus-Programm, um Network
-Informations-Services (NIS) und Shadow (sicherere) PasswЖrter auf
-Ihren System zu konfigurieren. Authconfig kann auъerdem anschalten,
-daъ NIS beim Systemstart angeschaltet wird.
+Informations-Services (NIS) und Shadow (sicherere) Passwц╤rter auf
+Ihren System zu konfigurieren. Authconfig kann auц÷erdem anschalten,
+daц÷ NIS beim Systemstart angeschaltet wird.
 
-%description -l es
+%description -l es.UTF-8
 Authconfig es un programa de interfaz de texto para configurar NIS y
-contraseЯas shadow en el sistema. El programa authconfig tambiИn puede
+contraseц╠as shadow en el sistema. El programa authconfig tambiц╘n puede
 inicializar NIS cuando se arranca el sistema.
 
-%description -l ja
-authconfig ╓о╔╥╔╧╔ф╔Ю╓к Network Information Service (NIS) ╓х╔╥╔Ц╔и║╪
-(╓Х╓Й╔╩╔╜╔Е╔Й╔ф╔ё║╪╓╛╧Б╓╓)╔я╔╧╔О║╪╔и╓н╔╩╔ц╔ф╔ё╔С╔╟╓Р╓╧╓Кц╪кЖ╔Б║╪╔и╓н
-╔в╔М╔╟╔И╔Ю╓г╓╧║ёauthconfig ╓о╓ч╓©╔╥╔╧╔ф╔Ю╣╞ф╟╩Ч╓к╪╚ф╟е╙╓к NIS ╓Р
-╔╙╔С╓к╓╧╓К╓Х╓╕╓к╔╥╔╧╔ф╔Ю╓РюъдЙ╓г╓╜╓ч╓╧║ё
+%description -l ja.UTF-8
+authconfig Ц│╞Ц┌╥Ц┌╧Ц┐├Ц┐═Ц│╚ Network Information Service (NIS) Ц│╗Ц┌╥Ц┐ёЦ┐┴Ц┐╪
+(Ц┌┬Ц┌┼Ц┌╩Ц┌╜Ц┐╔Ц┐╙Ц┐├Ц┌ёЦ┐╪Ц│▄И╚≤Ц│└)Ц┐▒Ц┌╧Ц┐╞Ц┐╪Ц┐┴Ц│╝Ц┌╩Ц┐┐Ц┐├Ц┌ёЦ┐ЁЦ┌╟Ц┌▓Ц│≥Ц┌▀Г╚╞Ф°╚Ц┐╒Ц┐╪Ц┐┴Ц│╝
+Ц┐≈Ц┐╜Ц┌╟Ц┐╘Ц┐═Ц│╖Ц│≥Ц─┌authconfig Ц│╞Ц│╬Ц│÷Ц┌╥Ц┌╧Ц┐├Ц┐═Х╣╥Е▀∙Ф≥┌Ц│╚Х┤╙Е▀∙Г └Ц│╚ NIS Ц┌▓
+Ц┌╙Ц┐ЁЦ│╚Ц│≥Ц┌▀Ц┌┬Ц│├Ц│╚Ц┌╥Ц┌╧Ц┐├Ц┐═Ц┌▓Х╗╜Е╝ Ц│╖Ц│█Ц│╬Ц│≥Ц─┌
 
-%description -l pl
+%description -l pl.UTF-8
 Authconfig jest terminalowym programem dla ustawiania NIS (Network
-Information Service) oraz przesЁoniЙtych (bardziej bezpiecznych) haseЁ
+Information Service) oraz przesе┌oniд≥tych (bardziej bezpiecznych) haseе┌
 w Twoim systemie. Authconfig dodatkowo konfiguruje system tak by NIS
-byЁ aktywowany przy starcie systemu.
+byе┌ aktywowany przy starcie systemu.
 
-%description -l pt_BR
-O authconfig И um programa de interface texto para configurar o NIS e
-senhas shadow no seu sistema. O authconfig tambИm pode inicializar o
+%description -l pt_BR.UTF-8
+O authconfig ц╘ um programa de interface texto para configurar o NIS e
+senhas shadow no seu sistema. O authconfig tambц╘m pode inicializar o
 NIS no boot do sistema.
 
-%description -l ru
-Authconfig - это терминальная программа для настройки Network
-Information Service (NIS) и shadow (более безопасных) паролей в вашей
-системе. Authconfig также настраивает систему на автоматический запуск
-NIS при старте системы.
+%description -l ru.UTF-8
+Authconfig - я█я┌п╬ я┌п╣я─п╪п╦п╫п╟п╩я▄п╫п╟я▐ п©я─п╬пЁя─п╟п╪п╪п╟ п╢п╩я▐ п╫п╟я│я┌я─п╬п╧п╨п╦ Network
+Information Service (NIS) п╦ shadow (п╠п╬п╩п╣п╣ п╠п╣п╥п╬п©п╟я│п╫я▀я┘) п©п╟я─п╬п╩п╣п╧ п╡ п╡п╟я┬п╣п╧
+я│п╦я│я┌п╣п╪п╣. Authconfig я┌п╟п╨п╤п╣ п╫п╟я│я┌я─п╟п╦п╡п╟п╣я┌ я│п╦я│я┌п╣п╪я┐ п╫п╟ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦п╧ п╥п╟п©я┐я│п╨
+NIS п©я─п╦ я│я┌п╟я─я┌п╣ я│п╦я│я┌п╣п╪я▀.
 
-%description -l uk
-Authconfig - це терм╕нальна програма для налагодження Network
-Information Service (NIS) та shadow (б╕льш безпечних) парол╕в у ваш╕й
-систем╕. Authconfig також конф╕гуру╓ систему для автоматичного запуску
-NIS при старт╕ системи.
+%description -l uk.UTF-8
+Authconfig - я├п╣ я┌п╣я─п╪я√п╫п╟п╩я▄п╫п╟ п©я─п╬пЁя─п╟п╪п╟ п╢п╩я▐ п╫п╟п╩п╟пЁп╬п╢п╤п╣п╫п╫я▐ Network
+Information Service (NIS) я┌п╟ shadow (п╠я√п╩я▄я┬ п╠п╣п╥п©п╣я┤п╫п╦я┘) п©п╟я─п╬п╩я√п╡ я┐ п╡п╟я┬я√п╧
+я│п╦я│я┌п╣п╪я√. Authconfig я┌п╟п╨п╬п╤ п╨п╬п╫я└я√пЁя┐я─я┐я■ я│п╦я│я┌п╣п╪я┐ п╢п╩я▐ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╫п╬пЁп╬ п╥п╟п©я┐я│п╨я┐
+NIS п©я─п╦ я│я┌п╟я─я┌я√ я│п╦я│я┌п╣п╪п╦.
 
 %prep
 %setup -q
