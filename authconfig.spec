@@ -7,19 +7,23 @@ Summary(pt_BR.UTF-8):	Ferramenta de interface texto para configuração de senha
 Summary(ru.UTF-8):	Утилита текстового режима для настройки shadow и NIS-паролей
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
-Version:	2.0
-Release:	8
+Version:	6.1.15
+Release:	0.1
 License:	GPL
 Group:		Base
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	5299be78429fd5f550950966b0a3e015
-Patch0:		%{name}-make.patch
-Patch1:		%{name}-po.patch
+Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
+# Source0-md5:	97adf98a5748ea1898f6ae603ec02792
+URL:		https://fedorahosted.org/authconfig
+BuildRequires:	desktop-file-utils
+BuildRequires:	gettext
 BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel
+BuildRequires:	intltool
 BuildRequires:	newt-devel
+BuildRequires:	perl-XML-Parser
 BuildRequires:	popt-devel
+BuildRequires:	python-devel
 BuildRequires:	slang-devel >= 2.0.0
-ExclusiveOS:	Linux
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,35 +72,100 @@ Information Service (NIS) та shadow (більш безпечних) парол
 системі. Authconfig також конфігурує систему для автоматичного запуску
 NIS при старті системи.
 
+%package gtk
+Summary:	Graphical tool for setting up authentication from network services
+Group:		Base
+Requires:	%{name} = %{version}-%{release}
+Requires:	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
+Requires:	python-pygtk-glade >= 2.14.0
+Requires:	usermode-gtk
+
+%description gtk
+Authconfig-gtk is a GUI program which can configure a workstation to
+use shadow (more secure) passwords. Authconfig-gtk can also configure
+a system to be a client for certain networked user information and
+authentication schemes.
+
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
-mv po/{no,nb}.po
-mv po/sr{,@Latn}.po
+#mv po/sr{,@latin}.po
 
 %build
-%{__make} \
-	CFLAGS="-DVERSION=\"${VERSION}\" %{rpmcflags} -Wall"
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
-	INSTROOT=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT
 
-# remove empty translation files
-for f in $RPM_BUILD_ROOT%{_datadir}/locale/*/LC_MESSAGES/*.mo; do
-	[ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] && rm -f $f
-done
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.a
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.la
+
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/%{name}/authconfig-tui.py
+ln -s authconfig.py $RPM_BUILD_ROOT%{_datadir}/%{name}/authconfig-tui.py
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post gtk
+%update_icon_cache_post hicolor
+
+%postun gtk
+%update_icon_cache_post hicolor
+
+%triggerin -- authconfig <= 5.4.9
+authconfig --update --nostart >/dev/null 2>&1 || :
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%doc NOTES TODO README.samba3
+%ghost %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/authconfig
+%ghost %config(noreplace) /etc/pam.d/system-auth-ac
+%ghost %config(noreplace) /etc/pam.d/password-auth-ac
+%ghost %config(noreplace) /etc/pam.d/fingerprint-auth-ac
+%ghost %config(noreplace) /etc/pam.d/smartcard-auth-ac
+%ghost %config(noreplace) /etc/pam.d/postlogin-ac
+%attr(755,root,root) %{_sbindir}/cacertdir_rehash
 %attr(755,root,root) %{_sbindir}/authconfig
+%attr(755,root,root) %{_sbindir}/authconfig-tui
+%attr(755,root,root) %{py_sitedir}/acutilmodule.so
+%exclude %{_mandir}/man8/system-config-authentication.*
+%exclude %{_mandir}/man8/authconfig-gtk.*
 %{_mandir}/man8/*
+%{_mandir}/man5/*
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/authconfig.py*
+%{_datadir}/%{name}/authconfig-tui.py*
+%{_datadir}/%{name}/authinfo.py*
+%{_datadir}/%{name}/shvfile.py*
+%{_datadir}/%{name}/dnsclient.py*
+%{_datadir}/%{name}/msgarea.py*
+%attr(700,root,root) %dir %{_localstatedir}/lib/%{name}
+
+%files gtk
+%defattr(644,root,root,755)
+%config(noreplace) /etc/pam.d/authconfig-gtk
+%config(noreplace) /etc/pam.d/system-config-authentication
+%config(noreplace) /etc/security/console.apps/authconfig-gtk
+%config(noreplace) /etc/security/console.apps/system-config-authentication
+%config(noreplace) /etc/pam.d/authconfig
+%config(noreplace) /etc/pam.d/authconfig-tui
+%config(noreplace) /etc/security/console.apps/authconfig
+%config(noreplace) /etc/security/console.apps/authconfig-tui
+%attr(755,root,root) %{_bindir}/authconfig
+%attr(755,root,root) %{_bindir}/authconfig-tui
+%attr(755,root,root) %{_bindir}/authconfig-gtk
+%attr(755,root,root) %{_bindir}/system-config-authentication
+%attr(755,root,root) %{_sbindir}/authconfig-gtk
+%attr(755,root,root) %{_sbindir}/system-config-authentication
+%{_mandir}/man8/system-config-authentication.*
+%{_mandir}/man8/authconfig-gtk.*
+%{_datadir}/%{name}/authconfig.glade
+%{_datadir}/%{name}/authconfig-gtk.py*
+%{_desktopdir}/*.desktop
+%{_iconsdir}/hicolor/*/apps/system-config-authentication.*
