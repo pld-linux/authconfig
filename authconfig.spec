@@ -7,12 +7,12 @@ Summary(pt_BR.UTF-8):	Ferramenta de interface texto para configuração de senha
 Summary(ru.UTF-8):	Утилита текстового режима для настройки shadow и NIS-паролей
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
-Version:	6.1.15
+Version:	6.1.17
 Release:	0.1
 License:	GPL
 Group:		Base
 Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
-# Source0-md5:	97adf98a5748ea1898f6ae603ec02792
+# Source0-md5:	4f54beebb5c91fdc0fe7d9bdba13526c
 URL:		https://fedorahosted.org/authconfig
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
