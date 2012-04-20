@@ -8,17 +8,20 @@ Summary(ru.UTF-8):	Утилита текстового режима для на�
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
 Version:	6.2.2
-Release:	0.3
+Release:	0.5
 License:	GPL v2+
 Group:		Base
 Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
 # Source0-md5:	13feaa9de8ddd93fde618415bf3aec75
 Patch0:		libs-resolv.patch
 URL:		https://fedorahosted.org/authconfig
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
 BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	newt-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	popt-devel
@@ -98,12 +101,18 @@ authentication schemes.
 #mv po/sr{,@latin}.po
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 CFLAGS="%{rpmcflags} -fPIC"
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
