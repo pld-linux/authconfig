@@ -7,23 +7,26 @@ Summary(pt_BR.UTF-8):	Ferramenta de interface texto para configuração de senha
 Summary(ru.UTF-8):	Утилита текстового режима для настройки shadow и NIS-паролей
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
-Version:	6.1.17
-Release:	0.1
-License:	GPL
+Version:	6.2.2
+Release:	0.2
+License:	GPL v2+
 Group:		Base
 Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
-# Source0-md5:	4f54beebb5c91fdc0fe7d9bdba13526c
+# Source0-md5:	13feaa9de8ddd93fde618415bf3aec75
 URL:		https://fedorahosted.org/authconfig
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
 BuildRequires:	intltool
 BuildRequires:	newt-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	popt-devel
-BuildRequires:	python-devel
+BuildRequires:	python-devel >= 1:2.6
 BuildRequires:	slang-devel >= 2.0.0
+#Requires:	libpwquality > 0.9
+Requires:	pam >= 0.99.10.0
+Requires:	python
+Requires:	python-snack
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -93,6 +96,7 @@ authentication schemes.
 #mv po/sr{,@latin}.po
 
 %build
+CFLAGS="%{rpmcflags} -fPIC"
 %configure
 %{__make}
 
@@ -100,6 +104,8 @@ authentication schemes.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/bal
 
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.a
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.la
@@ -134,10 +140,10 @@ authconfig --update --nostart >/dev/null 2>&1 || :
 %attr(755,root,root) %{_sbindir}/authconfig
 %attr(755,root,root) %{_sbindir}/authconfig-tui
 %attr(755,root,root) %{py_sitedir}/acutilmodule.so
-%exclude %{_mandir}/man8/system-config-authentication.*
-%exclude %{_mandir}/man8/authconfig-gtk.*
 %{_mandir}/man8/*
 %{_mandir}/man5/*
+%exclude %{_mandir}/man8/system-config-authentication.*
+%exclude %{_mandir}/man8/authconfig-gtk.*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/authconfig.py*
 %{_datadir}/%{name}/authconfig-tui.py*
@@ -149,17 +155,17 @@ authconfig --update --nostart >/dev/null 2>&1 || :
 
 %files gtk
 %defattr(644,root,root,755)
-%config(noreplace) /etc/pam.d/authconfig-gtk
-%config(noreplace) /etc/pam.d/system-config-authentication
-%config(noreplace) /etc/security/console.apps/authconfig-gtk
-%config(noreplace) /etc/security/console.apps/system-config-authentication
 %config(noreplace) /etc/pam.d/authconfig
+%config(noreplace) /etc/pam.d/authconfig-gtk
 %config(noreplace) /etc/pam.d/authconfig-tui
+%config(noreplace) /etc/pam.d/system-config-authentication
 %config(noreplace) /etc/security/console.apps/authconfig
+%config(noreplace) /etc/security/console.apps/authconfig-gtk
 %config(noreplace) /etc/security/console.apps/authconfig-tui
+%config(noreplace) /etc/security/console.apps/system-config-authentication
 %attr(755,root,root) %{_bindir}/authconfig
-%attr(755,root,root) %{_bindir}/authconfig-tui
 %attr(755,root,root) %{_bindir}/authconfig-gtk
+%attr(755,root,root) %{_bindir}/authconfig-tui
 %attr(755,root,root) %{_bindir}/system-config-authentication
 %attr(755,root,root) %{_sbindir}/authconfig-gtk
 %attr(755,root,root) %{_sbindir}/system-config-authentication
