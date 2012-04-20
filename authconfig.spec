@@ -8,7 +8,7 @@ Summary(ru.UTF-8):	Утилита текстового режима для на�
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
 Version:	6.2.2
-Release:	0.5
+Release:	0.6
 License:	GPL v2+
 Group:		Base
 Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
@@ -121,8 +121,11 @@ install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.a
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/acutilmodule.la
 
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/%{name}/authconfig-tui.py
-ln -s authconfig.py $RPM_BUILD_ROOT%{_datadir}/%{name}/authconfig-tui.py
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+# libraries, no sources needed
+%{__rm} -v $RPM_BUILD_ROOT%{_datadir}/%{name}/{authinfo,dnsclient,msgarea,shvfile}.py
+# invoked directly, not as library
+%{__rm} -v $RPM_BUILD_ROOT%{_datadir}/%{name}/authconfig*.py[co]
 
 %find_lang %{name}
 
@@ -157,11 +160,11 @@ authconfig --update --nostart >/dev/null 2>&1 || :
 %exclude %{_mandir}/man8/authconfig-gtk.*
 %dir %{_datadir}/%{name}
 %attr(755,root,root) %{_datadir}/%{name}/authconfig.py
-%{_datadir}/%{name}/authconfig-tui.py*
-%{_datadir}/%{name}/authinfo.py*
-%{_datadir}/%{name}/shvfile.py*
-%{_datadir}/%{name}/dnsclient.py*
-%{_datadir}/%{name}/msgarea.py*
+%{_datadir}/%{name}/authconfig-tui.py
+%{_datadir}/%{name}/authinfo.py[co]
+%{_datadir}/%{name}/shvfile.py[co]
+%{_datadir}/%{name}/dnsclient.py[co]
+%{_datadir}/%{name}/msgarea.py[co]
 %attr(700,root,root) %dir %{_localstatedir}/lib/%{name}
 
 %files gtk
@@ -183,6 +186,6 @@ authconfig --update --nostart >/dev/null 2>&1 || :
 %{_mandir}/man8/system-config-authentication.*
 %{_mandir}/man8/authconfig-gtk.*
 %{_datadir}/%{name}/authconfig.glade
-%{_datadir}/%{name}/authconfig-gtk.py*
+%attr(755,root,root) %{_datadir}/%{name}/authconfig-gtk.py
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/apps/system-config-authentication.*
