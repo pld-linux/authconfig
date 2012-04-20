@@ -8,11 +8,12 @@ Summary(ru.UTF-8):	Утилита текстового режима для на�
 Summary(uk.UTF-8):	Утиліта текстового режиму для налагодження shadow та NIS-паролів
 Name:		authconfig
 Version:	6.2.2
-Release:	0.2
+Release:	0.3
 License:	GPL v2+
 Group:		Base
 Source0:	https://fedorahosted.org/releases/a/u/authconfig/%{name}-%{version}.tar.bz2
 # Source0-md5:	13feaa9de8ddd93fde618415bf3aec75
+Patch0:		libs-resolv.patch
 URL:		https://fedorahosted.org/authconfig
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext-devel
@@ -92,6 +93,7 @@ authentication schemes.
 
 %prep
 %setup -q
+%patch0 -p1
 
 #mv po/sr{,@latin}.po
 
@@ -145,7 +147,7 @@ authconfig --update --nostart >/dev/null 2>&1 || :
 %exclude %{_mandir}/man8/system-config-authentication.*
 %exclude %{_mandir}/man8/authconfig-gtk.*
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/authconfig.py*
+%attr(755,root,root) %{_datadir}/%{name}/authconfig.py
 %{_datadir}/%{name}/authconfig-tui.py*
 %{_datadir}/%{name}/authinfo.py*
 %{_datadir}/%{name}/shvfile.py*
