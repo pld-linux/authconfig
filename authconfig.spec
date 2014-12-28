@@ -18,7 +18,7 @@ URL:		https://fedorahosted.org/authconfig
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
